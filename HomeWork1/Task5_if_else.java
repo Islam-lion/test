@@ -21,6 +21,8 @@ class Task5_if{
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         String name = scanner.nextLine();
+        System.out.println("Введите свое имя:");
+
         if(Objects.equals(name,"Вася")){
             System.out.println("Привет\n" + "Я тебя так долго ждал");
         }
