@@ -5,13 +5,14 @@ import java.util.Random;
 
 public class Sorts {
     public static void main(String[] args) {
-        System.out.println(Arrays.toString(randomSortArray()));
+        System.out.println(Arrays.toString(sortPuzyr(randomSortArray())));
     }
 
     public static int[] sortPuzyr(int[] array){
         int i;
         boolean chek = true;
         int temp;
+        System.out.println("Какой массив был до сортировки -> " + Arrays.toString(array));
 
         while (chek){
             chek = false;
@@ -24,6 +25,7 @@ public class Sorts {
                 }
             }
         }
+        System.out.println("Каким стал массив после сортировки -> " + Arrays.toString(array));
         return array;
     }
 
@@ -33,7 +35,7 @@ public class Sorts {
         for (int i = 0; i < array.length; i++) {
             array[i] = random.nextInt();
         }
-        Arrays.sort(array);
+//        Arrays.sort(array);
         return array;
     }
 }
