@@ -35,7 +35,7 @@ public class Sorts {
         for (int i = 0; i < array.length; i++) {
             array[i] = random.nextInt();
         }
-//        Arrays.sort(array);
+        Arrays.sort(array);
         return array;
     }
 }

@@ -26,4 +26,5 @@ public class CalculatorWithMathCopy implements ICalculator{
         return Math.sqrt(value);
     }
 
+
 }
