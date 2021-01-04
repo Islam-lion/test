@@ -1,10 +1,10 @@
 package HomeWork.homeWork4;
 
 
-import java.util.Arrays;
-import java.util.Comparator;
+import java.util.*;
+import java.util.function.Consumer;
 
-public class DataContainer <T>{
+public class DataContainer <T> implements Iterable{
 
     private T[] data;
     private int counter = 0;
@@ -113,8 +113,46 @@ public class DataContainer <T>{
        Arrays.sort(data, comporator);
     }
 
-    public static void sort(DataContainer<? extends Comparable> dataContainer){   //за решение этого метода не уверен
+    public static void sort(DataContainer<? extends Comparable> dataContainer){   //????????????????
         Arrays.sort(dataContainer.data);
     }
 
+
+
+    @Override
+    public Iterator<T> iterator() {
+        Iterator<T> it = new Iterator<>() {
+
+            int currentIndex = 0;
+
+            @Override
+            public boolean hasNext() {
+                return currentIndex < data.length && data[currentIndex] != null;
+            }
+
+            @Override
+            public T next() {
+                return data[currentIndex++];
+            }
+
+            @Override
+            public void remove() {
+                throw new UnsupportedOperationException();
+            }
+        };
+        return it;
+    }
+
+    @Override
+    public void forEach(Consumer action) {
+        Objects.requireNonNull(action);
+        for(T t : data){
+            action.accept(t);
+        }
+    }
+
+    @Override
+    public Spliterator<T> spliterator() {
+        return Spliterators.spliteratorUnknownSize(iterator(), 0);
+    }
 }
